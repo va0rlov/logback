@@ -1,0 +1,8 @@
+2025-01-17 09:40:27 - Starting Logback1Application using Java 17.0.13 with PID 29520 (C:\Users\VOrlov\Code\logback1\build\classes\java\main started by VOrlov in C:\Users\VOrlov\Code\logback1)
+2025-01-17 09:40:27 - No active profile set, falling back to 1 default profile: "default"
+2025-01-17 09:40:27 - Started Logback1Application in 0.632 seconds (process running for 1.312)
+2025-01-17 09:40:27 - This is an info message
+2025-01-17 09:43:52 - Starting Logback1Application using Java 17.0.13 with PID 7684 (C:\Users\VOrlov\Code\logback1\build\classes\java\main started by VOrlov in C:\Users\VOrlov\Code\logback1)
+2025-01-17 09:43:52 - No active profile set, falling back to 1 default profile: "default"
+2025-01-17 09:43:53 - Started Logback1Application in 0.627 seconds (process running for 0.811)
+2025-01-17 09:43:53 - This is an info message
