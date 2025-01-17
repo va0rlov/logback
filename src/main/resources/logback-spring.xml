@@ -1,9 +1,18 @@
 <configuration>
 
-    <appender name="INFO_FILE" class="ch.qos.logback.core.FileAppender">
+    <!-- Appender для INFO логов -->
+    <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- Ротация по дате и размеру файла -->
+            <fileNamePattern>logs/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize> <!-- Максимальный размер файла -->
+            <maxHistory>30</maxHistory> <!-- Хранение логов за последние 30 дней -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Общий размер всех логов -->
+        </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+            <!-- Шаблон вывода логов -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
@@ -12,10 +21,19 @@
         </filter>
     </appender>
 
-    <appender name="DEBUG_FILE" class="ch.qos.logback.core.FileAppender">
+    <!-- Appender для DEBUG логов -->
+    <appender name="DEBUG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/debug.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- Ротация по дате и размеру файла -->
+            <fileNamePattern>logs/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize> <!-- Максимальный размер файла -->
+            <maxHistory>30</maxHistory> <!-- Хранение логов за последние 30 дней -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Общий размер всех логов -->
+        </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+            <!-- Шаблон вывода логов -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>DEBUG</level>
@@ -24,9 +42,18 @@
         </filter>
     </appender>
 
+    <!-- Appender для вывода в консоль (опционально) -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Настройка корневого логгера -->
     <root level="DEBUG">
         <appender-ref ref="INFO_FILE"/>
         <appender-ref ref="DEBUG_FILE"/>
+        <appender-ref ref="CONSOLE"/> <!-- Опционально, если нужно выводить логи в консоль -->
     </root>
 
 </configuration>
