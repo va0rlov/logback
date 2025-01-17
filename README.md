@@ -1,5 +1,5 @@
 <h2>Задание:</h2>
-
+<hr>
 
 1. Создать spring-boot приложение.
 
@@ -17,6 +17,7 @@
 
 
 <h2>Полезные источники:</h2>
+<hr>
 
 - Документация spring https://spring.io/projects/spring-framework
 
